@@ -1,0 +1,33 @@
+.detalhesEntregador{
+	box-shadow:0px 0px 5px grey;
+	padding-top: 20 px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	width: 90%;	
+}
+
+.detalhesEntrega{
+	box-shadow:0px 0px 5px grey;
+	padding-top: 20 px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	width: 60%;	
+}
+
+.detalhesEntregas{
+	width: 60%;	
+}
+
+.alert{
+	color: black;
+	box-shadow:2px 2px 5px grey;
+	padding-top: 20 px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	width: 50%;	
+}
+
+.detalhesEntregasss{
+	color: #01579b light-blue darken-4;
+}
+

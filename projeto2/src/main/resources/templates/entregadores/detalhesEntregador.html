@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang=”pt-br” 
+	  xmlns:th="http//thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="Stylesheet" href="style/styleCss.css"/>
+</head>
+<meta charset="UTF-8">
+<body>
+	<header>
+		<nav>
+			<div class="nav-wrapper color #0288d1 light-blue darken-2">
+				<h1><a href="#" class="brand-logo">Nova Entrega</a></h1>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/lista"><i class="material-icons left">home</i>Inicio</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+	<div th:each="entregador : ${entregador}" class="container detalhesEntregador">
+		<div class="row">
+			<p>
+				Nome: <span th:text="${entregador.nome}"></span>
+			</p>
+			<p>
+				Telefone: <span th:text="${entregador.contato}"></span>
+			</p>
+			<p>
+				CNH: <span th:text="${entregador.cnh}"></span>
+			</p>
+		</div>
+		</div>
+		
+		
+		
+		<form method="post" th:object="${entrega}" class="container detalhesEntregador">
+			<div class="row">
+				<div class="input-field col s8">
+					Bairro: <input type="text" value="" name="bairro" placeholder="Bairro"/>
+				</div>
+				<div class="input-field col s4">
+					Valor R$: <input type="text" value="" name="valorCorrida" placeholder="Taxa de entrega"/>
+				</div>
+				<div class="input-field col s8">
+					Endereço: <input type="text" value="" name="endereco" placeholder="Rua nº casa apt"/>
+				</div>
+				<div class="input-field col s2">
+					Data: <input type="date" value="" name="data" />
+				</div>
+				<div class="input-field col s2">
+					Horário: <input type="time" value="" name="horario"/>
+				</div>
+				<div class="input-field col s12">
+					<button class="waves-effect waves-light btn color #4db6ac teal lighten-2" type="submit">Adicionar</button>
+					<th:block th:include="validacao"></th:block>
+				</div>
+			</div>
+		</form>
+	</div>
+	<table class="container detalhesEntregas">
+		<thead >
+			<tr>
+				<th>Bairro</th>
+				<th>Endereço</th>
+				<th>Data</th>
+				<th>Horário</th>
+				<th>Valor R$</th>
+				<th>Excluir</th>
+				<th>Editar</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="entrega : ${entregas}">
+				<td><span th:text="${entrega.bairro}"></span></td>
+				<td><span th:text="${entrega.endereco}"></span></td>
+				<td><span th:text="${entrega.data}"></span></td>
+				<td><span th:text="${entrega.horario}"></span></td>
+				<td><span th:text="${entrega.valorCorrida}"></span></td>
+				<td><a class="waves" th:href="${(#mvc.url('EC#deletarEntrega').arg(0, entrega.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
+				<td><a class="waves" th:href="${(#mvc.url('EC#deletarEntrega').arg(0, entrega.codigo)).build()}"><i class="material-icons left">settings</i></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

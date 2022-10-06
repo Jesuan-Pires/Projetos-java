@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Entregadores</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="Stylesheet" href="style/styleCss.css" />
+</head>
+<body>
+
+	<header>
+		<nav>
+			<div class="nav-wrapper color #0288d1 light-blue darken-2">
+				<a href="#" class="brand-logo">Entregadores</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/lista"><i class="material-icons left">home</i>Inicio</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<form class="container detalhesEntrega" method="post">
+		<div class="row">
+			<div class="input-field col s12">
+				Nome <input type="text" th:attr="value=${entregador.nome}"
+					placeholder="Nome Completo" />
+			</div>
+			<div class="input-field col s8">
+				Telefone <input type="text" th:attr="value=${entregador.contato}"
+					placeholder="(00) 00000-0000" />
+			</div>
+			<div class="input-field col s4">
+				CNH <input type="text" th:attr="value=${entregador.cnh}" 
+					 placeholder="00000000000" />
+			</div>
+			<div class="input-field col s12">
+				<button class="waves-effect waves-light btn color #4db6ac teal lighten-2" type="submit">Adicionar</button>
+			</div>
+			<th:block th:include="validacao"></th:block>
+		</div>
+
+	</form>
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
